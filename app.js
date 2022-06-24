@@ -11,6 +11,11 @@ app.get("/", (req, res)=>{
     res.render("index");
 });
 
-app.listen(8000, (req, res)=>{
-    console.log("Server running at port 8000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port, function () {
+  console.log("Server has started successfully at port 8000.");
 });
+
